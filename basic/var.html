@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 변수(var, let) / 상수(const)
+      // 값을 담은 후 타입 결정
+
+      // var : 재할당. 재선언 가능
+      // let : 재할당 가능, 재선언 불가(추천)
+      // const : 재할당, 재선언 불가능
+
+      var value1 = 4;
+      value1 = 10; // 재할당
+      console.log("value1 = ", value1);
+
+      var value1 = 50; // 재선언
+      console.log("value1 = ", value1);
+
+      let value2 = 55;
+      console.log("value2 = ", value2);
+      value2 = 60; // 재할당
+      console.log("value2 = ", value2);
+      //   let value2 = 60; (재선언 X)
+
+      let num1;
+      var num2;
+
+      // 상수 -> 값을 변화 시킬 수 없기에 반드시 값을 선지정 해줘야함
+      const value3 = 10;
+      // value3 = 15; (재할당 X -> 상수)
+      // const value3 = 15; (재선언 X)
+      console.log("value3 = ", value3);
+    </script>
+  </body>
+</html>
