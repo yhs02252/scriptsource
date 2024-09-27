@@ -105,6 +105,47 @@
         array2.push(item);
       });
       console.log(array2);
+
+      // 깊은 복사
+      // ... : spread 연산자 - 배열 or object 복사
+      const shallowCopy = [...array1];
+      console.log(shallowCopy);
+
+      console.log("원본 array1", array1);
+      array1.push(28);
+      console.log("push  array1", array1);
+      console.log("복사본 shallowCopy", shallowCopy);
+
+      const numbersOne = [1, 2, 3];
+      const numbersTwo = [4, 5, 6];
+      // ...spread 연산자를 이용하여 numbersOne, numbersTwo 두 배열을 합쳐서 하나의 배열로 생성
+      const numbersCombined = [...numbersOne, ...numbersTwo];
+      console.log("합친 후 ", numbersCombined);
+
+      // 일반개념
+      const fruits = ["사과", "딸기", "포도"];
+      const apple = fruits[0];
+      const berry = fruits[1];
+      const grape = fruits[2];
+
+      // Destructuring : 구조분해
+      const [apple1, berry1, grape1] = fruits; // 새로 추가된 개념
+
+      const numbers = [1, 2, 3, 4, 5, 6];
+      const [one, two, ...rest] = numbers;
+      console.log("One ", one);
+      console.log("Two ", two);
+      console.log("Rest ", rest);
+
+      // 얕은 복사(주소복사)
+      const cars3 = cars2;
+      console.log("복사본 cars3", cars3);
+      console.log("원본 cars2", cars2);
+      // 원본 요소 추가
+      cars2.push("자전거");
+      // 복사본에도 요소가 추가됨
+      console.log("복사본 cars3", cars3);
+      console.log("원본 cars2", cars2);
     </script>
   </body>
 </html>
