@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="ex">여기가 div로 선언되었습니다</div>
+    <p>
+      <a href="#" id="display">div요소 내용 출력</a>
+    </p>
+    <p>
+      <a href="#" id="revalue">div요소 내용 변경</a>
+    </p>
+    <script>
+      document.querySelector("#display").addEventListener("click", () => {
+        console.log(document.getElementById("ex").textContent);
+      });
+      // revlaue 요소 클릭 시 text 를 변경(div 요소 내용 변경 => 내용이 변경 되었습니다)
+      document
+        .querySelector("#revalue")
+        .addEventListener(
+          "click",
+          (e) => (e.target.textContent = "내용이 변경되었습니다.")
+        );
+    </script>
+  </body>
+</html>
