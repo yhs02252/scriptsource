@@ -55,14 +55,25 @@
       </div>
     </nav>
     <script>
-      const bg1 = document.querySelector(".badge");
-      bg1.addEventListener("click", (e) => {
+      const badge = document.querySelector(".badge");
+      const body = document.querySelector("body");
+      badge.addEventListener("click", (e) => {
         if (e.target.classList.contains("bg-dark")) {
           //badge 클릭 시 bg-dark 클래스 명이 있으면 bg-warning 변경
           e.target.classList.replace("bg-dark", "bg-warning");
+          // 글자 색상 흰색, 글자 🔁light
+          badge.style.color = "black";
+          badge.innerHTML = "light🔁";
+          // body.style.backgroundColor = "white";
+          body.classList.add("bg-dark");
         } else {
-          //badge 클릭 시 bg-warning 클래스 명이 있으면 bg-dark 변경
+          //badge 클릭 시 bg-warning 클래스 명이 있으면 bg-dark 변경.
           e.target.classList.replace("bg-warning", "bg-dark");
+          // 글자 검정색, 글자 dark 🔁
+          badge.style.color = "white";
+          badge.innerHTML = "dark🔁";
+          // body.style.backgroundColor = "black";
+          body.classList.remove("bg-dark");
         }
       });
     </script>
