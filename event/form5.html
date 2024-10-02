@@ -23,7 +23,7 @@
     <div>
       <label>
         숫자
-        <input type="text" name="num1" id="num1" size="5" />
+        <input type="number" name="num1" id="num1" size="5" />
       </label>
       <button type="button">확인</button>
     </div>
@@ -42,40 +42,43 @@
     <script>
       // 1 ~ 100 무작위 숫자를 작성
       const random = Math.floor(Math.random() * 100) + 1;
-      const count = document.querySelector("#count");
 
       let nGuess = 0;
 
       // button 클릭 시 사용자 입력값 가져오기
       document.querySelector("button").addEventListener("click", (e) => {
-        // const input = document.getElementById("#num1");
+        // const input = parseInt(document.getElementById("num1").value);
         const input = parseInt(document.querySelector("#num1").value);
 
-        count.value = 0;
-
         let msg = "";
-        // 사용자 입력값과 무작위 숫자 비교 후 힌트란에 보여주기
-        if (input < random) {
-          // 입력값 < 무작위 숫자 : 추측값이 작습니다.
-          msg = "추측 값이 작습니다";
-        } else if (input > random) {
-          // 입력값 > 무작위 숫자 : 추측값이 큽니다.
-          msg = "추측 값이 큽니다";
-        } else if (document.querySelector("input").value == "") {
-          alert("값을 입력해 주세요");
-          document.querySelector("input").focus();
-          //   return;
+        if (isNaN(input) == true) {
+          alert("값을 입력해주세요");
+          //   input.focus(); X  input.focus is not a function
+          document.querySelector("#num1").focus(); // O
+          console.log(input); // NaN
+          console.log(input.value); // undefined
+          console.log(document.querySelector("#num1")); //<input type="number" name="num1" id="num1" size="5" />
+          console.log(document.querySelector("#num1").value); // ""
         } else {
-          // 입력값 = 무작위 숫자 : 정답입니다.(버튼은 더이상 누르지 못하게)
-          msg = "정답입니다";
-          e.target.disabled = "true";
+          // 사용자 입력값과 무작위 숫자 비교 후 힌트란에 보여주기
+          if (input < random) {
+            // 입력값 < 무작위 숫자 : 추측값이 작습니다.
+            msg = "추측 값이 작습니다";
+          } else if (input > random) {
+            // 입력값 > 무작위 숫자 : 추측값이 큽니다.
+            msg = "추측 값이 큽니다";
+          } else {
+            // 입력값 = 무작위 숫자 : 정답입니다.(버튼은 더이상 누르지 못하게)
+            msg = "정답입니다";
+            e.target.disabled = "true";
+          }
+          document.querySelector("#hint").value = msg;
+
+          // 횟수 증가 후 추측횟수 란에 보여주기
+          // nGuess;
+          document.querySelector("#count").value = ++nGuess;
+          console.log(input);
         }
-
-        document.querySelector("#hint").value = msg;
-
-        // 횟수 증가 후 추측횟수 란에 보여주기
-        // nGuess;
-        document.querySelector("#count").value = ++nGuess;
       });
     </script>
   </body>
