@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>클릭하면 사라집니다</h2>
+    <p class="para1">이것은 문단입니다.</p>
+    <p id="para1">이것은 두번째 문단입니다.</p>
+    <table>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+      // 모든 선택자 가능
+      // $("h2").css("cursor", "pointer");
+
+      // //   $("h2").click(function () {
+      // //     $(this).hide();
+      // //   });
+
+      // $("h2").click((e) => {
+      //   // 화살표 함수에서는 this 안됨
+      //   // $(this).hide();
+      //   $("h2").hide();
+      //   // e.target.hide(); 작동 안됨 X
+      //   // $(e.target).hide(); <= 할 거면 이렇게
+      // });
+
+      // // on == addEventListener
+      // $(".para1").on("click", function () {
+      //   $(this).css("color", "red");
+      // });
+
+      // $("#para1").on("click", function () {
+      //   $(this).hide();
+      // });
+
+      // h2, .para1, #para2 click 시 => h2 글자 색상을 red 변경
+      $("h2, .para1, #para1").click(function () {
+        $("h2").css("color", "red");
+      });
+
+      // 테이블 짝수 행에 배경색
+      // 선택자:even : 홀수 요소
+      // 선택자:odd : 짝수 요소
+      $("tr:even").css("background", "orange");
+      $("tr:odd").css("background", "beige");
+
+      // 자바스크립트                                   jquery
+      // 1. 요소(element) 찾기
+      // document.querySelector("선택자")               $("선택자")
+
+      // 2. 스타일 변경
+      // 요소.style.property = "변경할 값"              요소.css(property, "변경할 값")
+      // h2.style.color = "red"                         h2.css("color", "red")
+
+      // 3. 이벤트
+      // 요소.addEventListner("이벤트명",함수)          요소.이벤트명(함수)
+      //                                                요소.on(이벤트명,함수)
+    </script>
+  </body>
+</html>

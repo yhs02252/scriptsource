@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>클릭하면 사라집니다</h2>
+    <p class="para1">이것은 문단입니다.</p>
+    <p id="para1">이것은 두번째 문단입니다.</p>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+      // 모든 선택자 가능
+      $("h2").css("cursor", "pointer");
+
+      //   $("h2").click(function () {
+      //     $(this).hide();
+      //   });
+
+      $("h2").click((e) => {
+        // 화살표 함수에서는 this 안됨
+        // $(this).hide();
+        $("h2").hide();
+        // e.target.hide(); 작동 안됨 X
+        // $(e.target).hide(); <= 할 거면 이렇게
+      });
+
+      // on == addEventListener
+      $(".para1").on("click", function () {
+        $(this).css("color", "red");
+      });
+
+      $("#para1").on("click", function () {
+        $(this).hide();
+      });
+    </script>
+  </body>
+</html>
