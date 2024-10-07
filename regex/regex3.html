@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: red;
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" name="tel" id="tel" placeholder="아이디 입력" />
+      <span></span>
+    </div>
+    <div>
+      <input
+        type="text"
+        name="userid"
+        id="userid"
+        placeholder="비밀번호 입력"
+      />
+      <span></span>
+    </div>
+    <div>
+      <input type="email" name="email" id="email" placeholder="이메일 입력" />
+      <span></span>
+    </div>
+    <script>
+      // tel 의 값 변화가 일어나면 전화번호의 형태로 입력되었는지 확인
+      // 숫자3 - 숫자4 - 숫자4 => span 안에 전화번호를 확인해 주세요
+      document.querySelector("#tel").addEventListener("change", (e) => {
+        // /[0-9]{3}-[0-9]{4}-[0-9]{4}/g
+
+        const telnum = /\d{3}-\d{4}-\d{4}/;
+
+        // 전화번호의 형식이 telnum 과 다를경우(if 구문 안의 false(!telnum.test(e.target.value) 가 "true" 일 경우) 메세지 표출
+        if (!telnum.test(e.target.value)) {
+          document.querySelector("#tel").nextElementSibling.innerHTML =
+            "전화번호를 확인해 주세요";
+        }
+      });
+
+      // box에 포커스를 줄 경우 span 메세지 다시 공백으로 설정
+      document.querySelector("#tel").addEventListener("focus", (e) => {
+        e.target.nextElementSibling.innerHTML = "";
+      });
+
+      // userid
+      document.querySelector("#userid").addEventListener("change", (e) => {
+        const userid = /[A-Za-z]+[0-9]+/g;
+
+        if (!userid.test(e.target.value))
+          document.querySelector("#userid").nextElementSibling.innerHTML =
+            "아이디를 확인해 주세요";
+      });
+
+      document.querySelector("#userid").addEventListener("focus", (e) => {
+        e.target.nextElementSibling.innerHTML = "";
+      });
+
+      // eamil
+      document.querySelector("#email").addEventListener("change", (e) => {
+        const emailReg =
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (!emailReg.test(e.target.value)) {
+          document.querySelector("#email").nextElementSibling.innerHTML =
+            "이메일을 확인해 주세요";
+        }
+      });
+
+      document.querySelector("#email").addEventListener("focus", (e) => {
+        e.target.nextElementSibling.innerHTML = "";
+      });
+    </script>
+  </body>
+</html>
